@@ -2,18 +2,53 @@
 """
 Market Data Fetcher for GitHub Actions
 Fetches data from Binance and Yahoo Finance, saves as JSON files
+Enhanced with Advanced ML Analysis
+
+FIXED: Now uses REAL klines data for indicator calculation
 """
 
 import httpx
 import json
 import os
 import random
+import time
 from datetime import datetime
 from pathlib import Path
+from typing import List, Dict, Optional
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Import advanced analyzer
+try:
+    from advanced_analyzer import AdvancedAnalyzer, enhance_signal_with_ml
+    HAS_ADVANCED = True
+except ImportError:
+    HAS_ADVANCED = False
+    print("Advanced analyzer not available, using basic analysis")
 
 # Create data directory
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
+
+# Signal cache for stability (prevent frequent changes)
+SIGNAL_CACHE_FILE = DATA_DIR / "signal_cache.json"
+
+def load_signal_cache() -> Dict[str, dict]:
+    """Load previous signals from cache"""
+    if SIGNAL_CACHE_FILE.exists():
+        try:
+            with open(SIGNAL_CACHE_FILE, 'r') as f:
+                return json.load(f)
+        except:
+            pass
+    return {}
+
+def save_signal_cache(cache: Dict[str, dict]):
+    """Save signals to cache"""
+    try:
+        with open(SIGNAL_CACHE_FILE, 'w') as f:
+            json.dump(cache, f)
+    except Exception as e:
+        print(f"Failed to save signal cache: {e}")
 
 # Crypto pairs to track (100 pairs)
 CRYPTO_PAIRS = [
@@ -88,120 +123,409 @@ def calculate_rsi(prices, period=14):
 
 
 def calculate_macd(prices):
-    """Calculate MACD from price list"""
-    if len(prices) < 26:
+    """Calculate MACD from price list - FIXED: Proper EMA calculation"""
+    if len(prices) < 35:  # Need at least 26 + 9 for signal line
         return {"macd": 0, "signal": 0, "histogram": 0}
     
-    def ema(data, period):
+    def calculate_ema(data, period):
+        """Calculate Exponential Moving Average"""
         if len(data) < period:
-            return data[-1] if data else 0
+            return []
         multiplier = 2 / (period + 1)
-        ema_val = sum(data[:period]) / period
-        for price in data[period:]:
-            ema_val = (price - ema_val) * multiplier + ema_val
-        return ema_val
+        ema_values = [sum(data[:period]) / period]
+        for i in range(period, len(data)):
+            new_ema = (data[i] - ema_values[-1]) * multiplier + ema_values[-1]
+            ema_values.append(new_ema)
+        return ema_values
     
-    ema12 = ema(prices, 12)
-    ema26 = ema(prices, 26)
-    macd_line = ema12 - ema26
-    signal_line = macd_line * 0.15  # Simplified
-    histogram = macd_line - signal_line
+    ema12 = calculate_ema(prices, 12)
+    ema26 = calculate_ema(prices, 26)
+    
+    if not ema12 or not ema26:
+        return {"macd": 0, "signal": 0, "histogram": 0}
+    
+    # Calculate MACD line (EMA12 - EMA26)
+    macd_line = []
+    offset = 26 - 12  # 14
+    for i in range(len(ema26)):
+        if i + offset < len(ema12):
+            macd_line.append(ema12[i + offset] - ema26[i])
+    
+    if len(macd_line) < 9:
+        return {"macd": 0, "signal": 0, "histogram": 0}
+    
+    # Signal line = 9 EMA of MACD
+    signal_line = calculate_ema(macd_line, 9)
+    
+    if not signal_line:
+        return {"macd": 0, "signal": 0, "histogram": 0}
+    
+    current_macd = macd_line[-1]
+    current_signal = signal_line[-1]
+    histogram = current_macd - current_signal
     
     return {
-        "macd": round(macd_line, 4),
-        "signal": round(signal_line, 4),
-        "histogram": round(histogram, 4)
+        "macd": round(current_macd, 6),
+        "signal": round(current_signal, 6),
+        "histogram": round(histogram, 6)
     }
 
 
-def determine_signal(rsi, macd_histogram, change_percent):
-    """Determine trading signal based on indicators"""
+def determine_signal(rsi, macd_histogram, change_percent, volume_ratio=1.0, prev_signal=None):
+    """
+    Determine trading signal based on indicators with stability mechanism
+    
+    To change from HOLD to BUY/SELL: need strong signal (score >= 3 or <= -3)
+    To change between BUY/SELL: need very strong signal (score >= 4 or <= -4)
+    This prevents frequent signal changes
+    """
     score = 0
     
-    # RSI scoring
-    if rsi < 30:
-        score += 2  # Oversold - bullish
+    # RSI scoring (more weight)
+    if rsi < 25:
+        score += 3  # Very oversold - very strong buy
+    elif rsi < 30:
+        score += 2  # Oversold - strong buy
     elif rsi < 40:
         score += 1
+    elif rsi > 75:
+        score -= 3  # Very overbought - very strong sell
     elif rsi > 70:
-        score -= 2  # Overbought - bearish
+        score -= 2  # Overbought - strong sell
     elif rsi > 60:
         score -= 1
     
-    # MACD scoring
-    if macd_histogram > 0:
+    # MACD scoring (increased weight)
+    if macd_histogram > 0.0001:  # Small threshold to avoid noise
         score += 1
-    else:
+        if macd_histogram > 0.001:
+            score += 1  # Strong momentum
+    elif macd_histogram < -0.0001:
         score -= 1
+        if macd_histogram < -0.001:
+            score -= 1  # Strong negative momentum
     
     # Trend scoring
-    if change_percent > 3:
+    if change_percent > 5:
+        score += 2
+    elif change_percent > 3:
         score += 1
+    elif change_percent < -5:
+        score -= 2
     elif change_percent < -3:
         score -= 1
     
-    if score >= 2:
-        return "BUY"
-    elif score <= -2:
-        return "SELL"
+    # Bull Trap Detection: Price up but volume low
+    if change_percent > 2 and volume_ratio < 0.8:
+        score -= 2  # Reduce bullish signal - potential bull trap
+    
+    # SIGNAL STABILITY MECHANISM
+    # Require stronger signals to change from current state
+    new_signal = "HOLD"
+    
+    if score >= 3:
+        new_signal = "BUY"
+    elif score <= -3:
+        new_signal = "SELL"
     else:
-        return "HOLD"
+        new_signal = "HOLD"
+    
+    # If previous signal exists, apply hysteresis
+    if prev_signal:
+        if prev_signal == "BUY":
+            # Require stronger signal to change from BUY
+            if score >= 1:  # Stay BUY if score is still positive
+                new_signal = "BUY"
+            elif score <= -4:  # Need very strong SELL signal
+                new_signal = "SELL"
+            else:
+                new_signal = "HOLD"
+        elif prev_signal == "SELL":
+            # Require stronger signal to change from SELL
+            if score <= -1:  # Stay SELL if score is still negative
+                new_signal = "SELL"
+            elif score >= 4:  # Need very strong BUY signal
+                new_signal = "BUY"
+            else:
+                new_signal = "HOLD"
+    
+    return new_signal
+
+
+def fetch_klines(client: httpx.Client, symbol: str, interval: str = "1h", limit: int = 100) -> Optional[List]:
+    """Fetch klines (candlestick) data from Binance"""
+    try:
+        url = f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval={interval}&limit={limit}"
+        response = client.get(url, timeout=10.0)
+        if response.status_code == 200:
+            return response.json()
+    except Exception as e:
+        print(f"Error fetching klines for {symbol}: {e}")
+    return None
+
+
+def calculate_timeframe_indicators(klines):
+    """Calculate indicators for a single timeframe"""
+    if not klines or len(klines) < 35:
+        return {
+            "rsi": 50.0,
+            "macd": {"macd": 0, "signal": 0, "histogram": 0},
+            "buy_score": 0,
+            "sell_score": 0,
+            "tf_signal": "HOLD"
+        }
+    
+    close_prices = [float(k[4]) for k in klines]
+    
+    rsi = calculate_rsi(close_prices)
+    macd = calculate_macd(close_prices)
+    
+    buy_score = 0
+    sell_score = 0
+    
+    # RSI scoring
+    if rsi < 25:
+        buy_score += 3
+    elif rsi < 30:
+        buy_score += 2
+    elif rsi < 40:
+        buy_score += 1
+    elif rsi > 75:
+        sell_score += 3
+    elif rsi > 70:
+        sell_score += 2
+    elif rsi > 60:
+        sell_score += 1
+    
+    # MACD scoring
+    histogram = macd['histogram']
+    macd_val = macd['macd']
+    macd_sig = macd['signal']
+    
+    if macd_val > macd_sig and histogram > 0.0001:
+        buy_score += 2
+    elif macd_val > macd_sig:
+        buy_score += 1
+    elif macd_val < macd_sig and histogram < -0.0001:
+        sell_score += 2
+    elif macd_val < macd_sig:
+        sell_score += 1
+    
+    # Histogram momentum
+    if histogram > 0.001:
+        buy_score += 1
+    elif histogram < -0.001:
+        sell_score += 1
+    
+    net_score = buy_score - sell_score
+    if net_score >= 2:
+        tf_signal = "BUY"
+    elif net_score <= -2:
+        tf_signal = "SELL"
+    else:
+        tf_signal = "HOLD"
+    
+    return {
+        "rsi": rsi,
+        "macd": macd,
+        "buy_score": buy_score,
+        "sell_score": sell_score,
+        "tf_signal": tf_signal
+    }
+
+
+def analyze_multi_timeframe(client: httpx.Client, symbol: str):
+    """
+    Multi-Timeframe Analysis: Combines 4h (50%), 1h (30%), 15m (20%)
+    Returns combined scores and primary timeframe indicators
+    """
+    # Fetch all timeframes
+    klines_4h = fetch_klines(client, symbol, "4h", 100)
+    klines_1h = fetch_klines(client, symbol, "1h", 100)
+    klines_15m = fetch_klines(client, symbol, "15m", 100)
+    
+    # Calculate indicators for each
+    result_4h = calculate_timeframe_indicators(klines_4h)
+    result_1h = calculate_timeframe_indicators(klines_1h)
+    result_15m = calculate_timeframe_indicators(klines_15m)
+    
+    # Combine scores with weights: 4h=50%, 1h=30%, 15m=20%
+    combined_buy = (
+        result_4h['buy_score'] * 0.5 +
+        result_1h['buy_score'] * 0.3 +
+        result_15m['buy_score'] * 0.2
+    )
+    combined_sell = (
+        result_4h['sell_score'] * 0.5 +
+        result_1h['sell_score'] * 0.3 +
+        result_15m['sell_score'] * 0.2
+    )
+    
+    net_score = combined_buy - combined_sell
+    
+    # Extract close prices from primary timeframe for advanced analysis
+    close_prices = [float(k[4]) for k in klines_1h] if klines_1h else []
+    volumes = [float(k[5]) for k in klines_1h] if klines_1h else []
+    highs = [float(k[2]) for k in klines_1h] if klines_1h else []
+    lows = [float(k[3]) for k in klines_1h] if klines_1h else []
+    
+    return {
+        "rsi": result_1h['rsi'],  # Primary timeframe
+        "macd": result_1h['macd'],
+        "combined_buy": combined_buy,
+        "combined_sell": combined_sell,
+        "net_score": net_score,
+        "tf_4h": result_4h['tf_signal'],
+        "tf_1h": result_1h['tf_signal'],
+        "tf_15m": result_15m['tf_signal'],
+        "close_prices": close_prices,
+        "volumes": volumes,
+        "highs": highs,
+        "lows": lows
+    }
+
+
+def determine_signal_multi_tf(mtf_result, prev_signal=None):
+    """Generate signal from multi-timeframe analysis with hysteresis"""
+    net_score = mtf_result['net_score']
+    combined_buy = mtf_result['combined_buy']
+    combined_sell = mtf_result['combined_sell']
+    
+    # Multi-TF thresholds (weighted, so use 1.5 instead of 3)
+    if net_score >= 1.5:
+        new_signal = "BUY"
+    elif net_score <= -1.5:
+        new_signal = "SELL"
+    else:
+        new_signal = "HOLD"
+    
+    # Apply hysteresis
+    if prev_signal:
+        if prev_signal == "BUY":
+            if net_score >= 0:
+                new_signal = "BUY"
+            elif net_score <= -2.0:
+                new_signal = "SELL"
+            else:
+                new_signal = "HOLD"
+        elif prev_signal == "SELL":
+            if net_score <= 0:
+                new_signal = "SELL"
+            elif net_score >= 2.0:
+                new_signal = "BUY"
+            else:
+                new_signal = "HOLD"
+    
+    # Calculate confidence
+    total_score = combined_buy + combined_sell
+    if new_signal == "BUY" and total_score > 0:
+        confidence = min(combined_buy / total_score, 0.95)
+    elif new_signal == "SELL" and total_score > 0:
+        confidence = min(combined_sell / total_score, 0.95)
+    else:
+        confidence = 0.5
+    
+    confidence = max(confidence, 0.3)
+    
+    return new_signal, confidence
 
 
 def fetch_crypto_data():
-    """Fetch crypto data from Binance"""
-    print("Fetching crypto data from Binance...")
+    """Fetch crypto data from Binance with REAL klines for indicator calculation"""
+    print("Fetching crypto data from Binance (with real klines)...")
     signals = []
+    
+    # Load previous signals for stability
+    signal_cache = load_signal_cache()
+    new_cache = {}
     
     try:
         with httpx.Client(timeout=30.0) as client:
-            # Fetch 24hr ticker data
+            # Fetch 24hr ticker data for all symbols
             response = client.get("https://api.binance.com/api/v3/ticker/24hr")
             response.raise_for_status()
             all_tickers = {t['symbol']: t for t in response.json()}
             
+            # Process symbols with rate limiting
+            processed = 0
             for symbol in CRYPTO_PAIRS:
                 try:
                     if symbol not in all_tickers:
+                        print(f"Symbol {symbol} not found in tickers")
                         continue
                     
                     ticker = all_tickers[symbol]
                     price = float(ticker['lastPrice'])
                     change_percent = float(ticker['priceChangePercent'])
                     volume = float(ticker['volume'])
+                    quote_volume = float(ticker['quoteVolume'])
                     high = float(ticker['highPrice'])
                     low = float(ticker['lowPrice'])
                     
-                    # Generate simulated historical prices for indicators
-                    base_price = price
-                    volatility = abs(change_percent) / 100 * 2 + 0.02
-                    prices = []
-                    for i in range(30):
-                        variation = random.uniform(-volatility, volatility)
-                        prices.append(base_price * (1 + variation))
-                    prices.append(price)
+                    # Multi-Timeframe Analysis (4h, 1h, 15m)
+                    mtf_result = analyze_multi_timeframe(client, symbol)
                     
-                    rsi = calculate_rsi(prices)
-                    macd = calculate_macd(prices)
-                    signal_type = determine_signal(rsi, macd['histogram'], change_percent)
+                    rsi = mtf_result['rsi']
+                    macd = mtf_result['macd']
+                    close_prices = mtf_result['close_prices']
+                    volumes = mtf_result['volumes']
+                    highs = mtf_result['highs']
+                    lows = mtf_result['lows']
                     
-                    # Calculate strength
-                    strength = min(abs(rsi - 50) / 50 + abs(change_percent) / 10, 1.0)
+                    # Calculate volume ratio (current vs average)
+                    avg_volume = sum(volumes[-14:]) / 14 if len(volumes) >= 14 else (sum(volumes) / len(volumes) if volumes else 1)
+                    current_volume = volumes[-1] if volumes else volume
+                    volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
                     
-                    signals.append({
+                    # Get previous signal for stability
+                    prev_signal = signal_cache.get(symbol, {}).get("signal")
+                    
+                    # Use Multi-TF signal generation
+                    signal_type, confidence = determine_signal_multi_tf(mtf_result, prev_signal)
+                    
+                    # Store in new cache for next run
+                    new_cache[symbol] = {"signal": signal_type, "rsi": rsi}
+                    
+                    signal_data = {
                         "symbol": symbol.replace("USDT", ""),
                         "name": symbol.replace("USDT", "/USDT"),
                         "price": price,
                         "change_24h": round(change_percent, 2),
-                        "volume_24h": volume,
+                        "volume_24h": quote_volume,
                         "high_24h": high,
                         "low_24h": low,
-                        "rsi": rsi,
+                        "rsi": round(rsi, 2),
                         "macd": macd,
                         "signal": signal_type,
-                        "strength": round(strength, 2),
-                        "timestamp": datetime.utcnow().isoformat() + "Z"
-                    })
+                        "strength": round(confidence, 2),  # Use confidence from Multi-TF
+                        "volume_ratio": round(volume_ratio, 2),
+                        "timestamp": datetime.utcnow().isoformat() + "Z",
+                        # Multi-TF info
+                        "tf_4h": mtf_result['tf_4h'],
+                        "tf_1h": mtf_result['tf_1h'],
+                        "tf_15m": mtf_result['tf_15m'],
+                        "net_score": round(mtf_result['net_score'], 2)
+                    }
+                    
+                    # Add advanced analysis if available
+                    if HAS_ADVANCED:
+                        try:
+                            signal_data = enhance_signal_with_ml(
+                                signal_data=signal_data,
+                                prices=close_prices,
+                                volumes=volumes,
+                                highs=highs,
+                                lows=lows,
+                            )
+                        except Exception as e:
+                            print(f"Advanced analysis error for {symbol}: {e}")
+                    
+                    signals.append(signal_data)
+                    processed += 1
+                    
+                    # Rate limiting: small delay every 10 symbols
+                    if processed % 10 == 0:
+                        time.sleep(0.1)
                     
                 except Exception as e:
                     print(f"Error processing {symbol}: {e}")
@@ -215,6 +539,9 @@ def fetch_crypto_data():
             with open(cache_file) as f:
                 return json.load(f)
         return []
+    
+    # Save signal cache for next run
+    save_signal_cache(new_cache)
     
     print(f"Fetched {len(signals)} crypto signals")
     return signals
