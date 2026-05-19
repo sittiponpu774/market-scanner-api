@@ -1769,12 +1769,145 @@
     {
       "symbol": "PTT",
       "name": "PTT",
-      "price": 32.37,
-      "change_24h": -0.39,
-      "volume_24h": 14242845,
-      "high_24h": 32.86,
-      "low_24h": 31.89,
-      "rsi": 52.29,
+      "price": 31.94,
+      "change_24h": -1.72,
+      "volume_24h": 8813513,
+      "high_24h": 32.42,
+      "low_24h": 31.46,
+      "rsi": 45.68,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.26,
+      "sector": "Energy",
+      "timestamp": "2026-05-19T23:34:53.363082Z"
+    },
+    {
+      "symbol": "AOT",
+      "name": "AOT",
+      "price": 63.72,
+      "change_24h": 2.78,
+      "volume_24h": 4352635,
+      "high_24h": 64.68,
+      "low_24h": 62.77,
+      "rsi": 50.96,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.3,
+      "sector": "Transport",
+      "timestamp": "2026-05-19T23:34:53.363117Z"
+    },
+    {
+      "symbol": "ADVANC",
+      "name": "ADVANC",
+      "price": 263.61,
+      "change_24h": -1.64,
+      "volume_24h": 1490529,
+      "high_24h": 267.56,
+      "low_24h": 259.65,
+      "rsi": 49.58,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.17,
+      "sector": "Telecom",
+      "timestamp": "2026-05-19T23:34:53.363151Z"
+    },
+    {
+      "symbol": "CPALL",
+      "name": "CPALL",
+      "price": 57.88,
+      "change_24h": 2.91,
+      "volume_24h": 10421339,
+      "high_24h": 58.75,
+      "low_24h": 57.02,
+      "rsi": 54.6,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.38,
+      "sector": "Commerce",
+      "timestamp": "2026-05-19T23:34:53.363184Z"
+    },
+    {
+      "symbol": "SCC",
+      "name": "SCC",
+      "price": 368.27,
+      "change_24h": 2.3,
+      "volume_24h": 1353507,
+      "high_24h": 373.79,
+      "low_24h": 362.74,
+      "rsi": 48.71,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.26,
+      "sector": "Construction",
+      "timestamp": "2026-05-19T23:34:53.363210Z"
+    },
+    {
+      "symbol": "KBANK",
+      "name": "KBANK",
+      "price": 145.46,
+      "change_24h": -4.61,
+      "volume_24h": 3146978,
+      "high_24h": 147.64,
+      "low_24h": 143.28,
+      "rsi": 42.76,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.61,
+      "sector": "Banking",
+      "timestamp": "2026-05-19T23:34:53.363229Z"
+    },
+    {
+      "symbol": "SCB",
+      "name": "SCB",
+      "price": 97.92,
+      "change_24h": 2.26,
+      "volume_24h": 2986721,
+      "high_24h": 99.38,
+      "low_24h": 96.45,
+      "rsi": 56.93,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.36,
+      "sector": "Banking",
+      "timestamp": "2026-05-19T23:34:53.363246Z"
+    },
+    {
+      "symbol": "BBL",
+      "name": "BBL",
+      "price": 167.33,
+      "change_24h": -0.69,
+      "volume_24h": 2292463,
+      "high_24h": 169.84,
+      "low_24h": 164.82,
+      "rsi": 48.93,
       "macd": {
         "macd": 0,
         "signal": 0,
@@ -1782,246 +1915,37 @@
       },
       "signal": "HOLD",
       "strength": 0.09,
-      "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372635Z"
-    },
-    {
-      "symbol": "AOT",
-      "name": "AOT",
-      "price": 62.31,
-      "change_24h": 0.5,
-      "volume_24h": 11568264,
-      "high_24h": 63.25,
-      "low_24h": 61.38,
-      "rsi": 53.66,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.12,
-      "sector": "Transport",
-      "timestamp": "2026-05-19T22:20:16.372658Z"
-    },
-    {
-      "symbol": "ADVANC",
-      "name": "ADVANC",
-      "price": 265.61,
-      "change_24h": -0.89,
-      "volume_24h": 1167009,
-      "high_24h": 269.6,
-      "low_24h": 261.63,
-      "rsi": 44.87,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.19,
-      "sector": "Telecom",
-      "timestamp": "2026-05-19T22:20:16.372675Z"
-    },
-    {
-      "symbol": "CPALL",
-      "name": "CPALL",
-      "price": 58.76,
-      "change_24h": 4.45,
-      "volume_24h": 7934699,
-      "high_24h": 59.64,
-      "low_24h": 57.87,
-      "rsi": 60.71,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.66,
-      "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.372690Z"
-    },
-    {
-      "symbol": "SCC",
-      "name": "SCC",
-      "price": 362.08,
-      "change_24h": 0.58,
-      "volume_24h": 851227,
-      "high_24h": 367.51,
-      "low_24h": 356.64,
-      "rsi": 45.88,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.14,
-      "sector": "Construction",
-      "timestamp": "2026-05-19T22:20:16.372707Z"
-    },
-    {
-      "symbol": "KBANK",
-      "name": "KBANK",
-      "price": 147.33,
-      "change_24h": -3.39,
-      "volume_24h": 4609654,
-      "high_24h": 149.54,
-      "low_24h": 145.12,
-      "rsi": 43.03,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.48,
       "sector": "Banking",
-      "timestamp": "2026-05-19T22:20:16.372722Z"
-    },
-    {
-      "symbol": "SCB",
-      "name": "SCB",
-      "price": 91.76,
-      "change_24h": -4.16,
-      "volume_24h": 2614372,
-      "high_24h": 93.14,
-      "low_24h": 90.39,
-      "rsi": 37.95,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.66,
-      "sector": "Banking",
-      "timestamp": "2026-05-19T22:20:16.372736Z"
-    },
-    {
-      "symbol": "BBL",
-      "name": "BBL",
-      "price": 173.34,
-      "change_24h": 2.87,
-      "volume_24h": 2019330,
-      "high_24h": 175.94,
-      "low_24h": 170.74,
-      "rsi": 56.3,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.41,
-      "sector": "Banking",
-      "timestamp": "2026-05-19T22:20:16.372753Z"
+      "timestamp": "2026-05-19T23:34:53.363266Z"
     },
     {
       "symbol": "GULF",
       "name": "GULF",
-      "price": 47.01,
-      "change_24h": 3.88,
-      "volume_24h": 16806993,
-      "high_24h": 47.71,
-      "low_24h": 46.3,
-      "rsi": 59.21,
+      "price": 43.16,
+      "change_24h": -4.63,
+      "volume_24h": 19455735,
+      "high_24h": 43.8,
+      "low_24h": 42.51,
+      "rsi": 45.23,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.57,
+      "strength": 0.56,
       "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372768Z"
+      "timestamp": "2026-05-19T23:34:53.363284Z"
     },
     {
       "symbol": "PTTEP",
       "name": "PTTEP",
-      "price": 139.94,
-      "change_24h": 3.66,
-      "volume_24h": 7121897,
-      "high_24h": 142.04,
-      "low_24h": 137.84,
-      "rsi": 57.7,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.52,
-      "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372783Z"
-    },
-    {
-      "symbol": "BDMS",
-      "name": "BDMS",
-      "price": 28.98,
-      "change_24h": 0.81,
-      "volume_24h": 11361233,
-      "high_24h": 29.42,
-      "low_24h": 28.55,
-      "rsi": 51.56,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.11,
-      "sector": "Healthcare",
-      "timestamp": "2026-05-19T22:20:16.372798Z"
-    },
-    {
-      "symbol": "TRUE",
-      "name": "TRUE",
-      "price": 10.24,
-      "change_24h": -0.6,
-      "volume_24h": 64520620,
-      "high_24h": 10.39,
-      "low_24h": 10.08,
-      "rsi": 45.18,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.16,
-      "sector": "Telecom",
-      "timestamp": "2026-05-19T22:20:16.372813Z"
-    },
-    {
-      "symbol": "BEM",
-      "name": "BEM",
-      "price": 8.88,
-      "change_24h": 3.89,
-      "volume_24h": 112069956,
-      "high_24h": 9.02,
-      "low_24h": 8.75,
-      "rsi": 59.37,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.58,
-      "sector": "Transport",
-      "timestamp": "2026-05-19T22:20:16.372826Z"
-    },
-    {
-      "symbol": "MINT",
-      "name": "MINT",
-      "price": 30.43,
-      "change_24h": -4.89,
-      "volume_24h": 25201879,
-      "high_24h": 30.89,
-      "low_24h": 29.98,
-      "rsi": 45.08,
+      "price": 140.57,
+      "change_24h": 4.13,
+      "volume_24h": 4003745,
+      "high_24h": 142.68,
+      "low_24h": 138.46,
+      "rsi": 58.88,
       "macd": {
         "macd": 0,
         "signal": 0,
@@ -2029,94 +1953,37 @@
       },
       "signal": "HOLD",
       "strength": 0.59,
-      "sector": "Food",
-      "timestamp": "2026-05-19T22:20:16.372840Z"
-    },
-    {
-      "symbol": "CPN",
-      "name": "CPN",
-      "price": 60.94,
-      "change_24h": 4.17,
-      "volume_24h": 10016242,
-      "high_24h": 61.85,
-      "low_24h": 60.02,
-      "rsi": 60.89,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.63,
-      "sector": "Property",
-      "timestamp": "2026-05-19T22:20:16.372854Z"
-    },
-    {
-      "symbol": "DELTA",
-      "name": "DELTA",
-      "price": 88.72,
-      "change_24h": -0.6,
-      "volume_24h": 10868650,
-      "high_24h": 90.05,
-      "low_24h": 87.39,
-      "rsi": 49.27,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.07,
-      "sector": "Electronics",
-      "timestamp": "2026-05-19T22:20:16.372868Z"
-    },
-    {
-      "symbol": "EA",
-      "name": "EA",
-      "price": 18.16,
-      "change_24h": -2.9,
-      "volume_24h": 39503876,
-      "high_24h": 18.43,
-      "low_24h": 17.89,
-      "rsi": 47.59,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.34,
       "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372882Z"
+      "timestamp": "2026-05-19T23:34:53.363303Z"
     },
     {
-      "symbol": "GPSC",
-      "name": "GPSC",
-      "price": 55.21,
-      "change_24h": -4.81,
-      "volume_24h": 11152781,
-      "high_24h": 56.04,
-      "low_24h": 54.38,
-      "rsi": 42.11,
+      "symbol": "BDMS",
+      "name": "BDMS",
+      "price": 29.05,
+      "change_24h": 1.06,
+      "volume_24h": 20809135,
+      "high_24h": 29.49,
+      "low_24h": 28.62,
+      "rsi": 48.17,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.64,
-      "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372896Z"
+      "strength": 0.14,
+      "sector": "Healthcare",
+      "timestamp": "2026-05-19T23:34:53.363322Z"
     },
     {
-      "symbol": "INTUCH",
-      "name": "INTUCH",
-      "price": 84.27,
-      "change_24h": -0.85,
-      "volume_24h": 3042424,
-      "high_24h": 85.54,
-      "low_24h": 83.01,
-      "rsi": 52.13,
+      "symbol": "TRUE",
+      "name": "TRUE",
+      "price": 10.16,
+      "change_24h": -1.33,
+      "volume_24h": 28337797,
+      "high_24h": 10.32,
+      "low_24h": 10.01,
+      "rsi": 50.0,
       "macd": {
         "macd": 0,
         "signal": 0,
@@ -2125,73 +1992,111 @@
       "signal": "HOLD",
       "strength": 0.13,
       "sector": "Telecom",
-      "timestamp": "2026-05-19T22:20:16.372909Z"
+      "timestamp": "2026-05-19T23:34:53.363339Z"
     },
     {
-      "symbol": "IVL",
-      "name": "IVL",
-      "price": 33.1,
-      "change_24h": 2.64,
-      "volume_24h": 15558291,
-      "high_24h": 33.6,
-      "low_24h": 32.6,
-      "rsi": 49.71,
+      "symbol": "BEM",
+      "name": "BEM",
+      "price": 8.47,
+      "change_24h": -0.91,
+      "volume_24h": 32877765,
+      "high_24h": 8.6,
+      "low_24h": 8.35,
+      "rsi": 51.35,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.27,
-      "sector": "Petrochemical",
-      "timestamp": "2026-05-19T22:20:16.372924Z"
+      "strength": 0.12,
+      "sector": "Transport",
+      "timestamp": "2026-05-19T23:34:53.363356Z"
     },
     {
-      "symbol": "KCE",
-      "name": "KCE",
-      "price": 45.07,
-      "change_24h": 0.16,
-      "volume_24h": 9692233,
-      "high_24h": 45.75,
-      "low_24h": 44.4,
-      "rsi": 47.53,
+      "symbol": "MINT",
+      "name": "MINT",
+      "price": 33.11,
+      "change_24h": 3.48,
+      "volume_24h": 24298884,
+      "high_24h": 33.61,
+      "low_24h": 32.62,
+      "rsi": 57.1,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.07,
+      "strength": 0.49,
+      "sector": "Food",
+      "timestamp": "2026-05-19T23:34:53.363374Z"
+    },
+    {
+      "symbol": "CPN",
+      "name": "CPN",
+      "price": 56.43,
+      "change_24h": -3.54,
+      "volume_24h": 5206832,
+      "high_24h": 57.28,
+      "low_24h": 55.58,
+      "rsi": 39.76,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.56,
+      "sector": "Property",
+      "timestamp": "2026-05-19T23:34:53.363391Z"
+    },
+    {
+      "symbol": "DELTA",
+      "name": "DELTA",
+      "price": 85.79,
+      "change_24h": -3.87,
+      "volume_24h": 5839002,
+      "high_24h": 87.08,
+      "low_24h": 84.51,
+      "rsi": 43.38,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.52,
       "sector": "Electronics",
-      "timestamp": "2026-05-19T22:20:16.372939Z"
+      "timestamp": "2026-05-19T23:34:53.363408Z"
     },
     {
-      "symbol": "KTB",
-      "name": "KTB",
-      "price": 23.23,
+      "symbol": "EA",
+      "name": "EA",
+      "price": 19.05,
       "change_24h": 1.87,
-      "volume_24h": 27384063,
-      "high_24h": 23.58,
-      "low_24h": 22.88,
-      "rsi": 54.34,
+      "volume_24h": 39080710,
+      "high_24h": 19.33,
+      "low_24h": 18.76,
+      "rsi": 57.32,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.27,
-      "sector": "Banking",
-      "timestamp": "2026-05-19T22:20:16.372952Z"
+      "strength": 0.33,
+      "sector": "Energy",
+      "timestamp": "2026-05-19T23:34:53.363424Z"
     },
     {
-      "symbol": "BANPU",
-      "name": "BANPU",
-      "price": 8.29,
-      "change_24h": 0.47,
-      "volume_24h": 77899161,
-      "high_24h": 8.41,
-      "low_24h": 8.16,
+      "symbol": "GPSC",
+      "name": "GPSC",
+      "price": 57.69,
+      "change_24h": -0.53,
+      "volume_24h": 9927466,
+      "high_24h": 58.56,
+      "low_24h": 56.83,
       "rsi": 47.39,
       "macd": {
         "macd": 0,
@@ -2201,264 +2106,302 @@
       "signal": "HOLD",
       "strength": 0.1,
       "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372966Z"
+      "timestamp": "2026-05-19T23:34:53.363441Z"
+    },
+    {
+      "symbol": "INTUCH",
+      "name": "INTUCH",
+      "price": 80.75,
+      "change_24h": -5.0,
+      "volume_24h": 9338929,
+      "high_24h": 81.97,
+      "low_24h": 79.54,
+      "rsi": 41.71,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.67,
+      "sector": "Telecom",
+      "timestamp": "2026-05-19T23:34:53.363458Z"
+    },
+    {
+      "symbol": "IVL",
+      "name": "IVL",
+      "price": 32.57,
+      "change_24h": 1.01,
+      "volume_24h": 13505656,
+      "high_24h": 33.06,
+      "low_24h": 32.09,
+      "rsi": 46.34,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.17,
+      "sector": "Petrochemical",
+      "timestamp": "2026-05-19T23:34:53.363475Z"
+    },
+    {
+      "symbol": "KCE",
+      "name": "KCE",
+      "price": 43.21,
+      "change_24h": -3.97,
+      "volume_24h": 7718860,
+      "high_24h": 43.86,
+      "low_24h": 42.56,
+      "rsi": 46.77,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.46,
+      "sector": "Electronics",
+      "timestamp": "2026-05-19T23:34:53.363494Z"
+    },
+    {
+      "symbol": "KTB",
+      "name": "KTB",
+      "price": 22.25,
+      "change_24h": -2.43,
+      "volume_24h": 28130043,
+      "high_24h": 22.58,
+      "low_24h": 21.91,
+      "rsi": 47.72,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.29,
+      "sector": "Banking",
+      "timestamp": "2026-05-19T23:34:53.363510Z"
+    },
+    {
+      "symbol": "BANPU",
+      "name": "BANPU",
+      "price": 8.49,
+      "change_24h": 2.89,
+      "volume_24h": 81168582,
+      "high_24h": 8.62,
+      "low_24h": 8.36,
+      "rsi": 52.71,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.34,
+      "sector": "Energy",
+      "timestamp": "2026-05-19T23:34:53.363527Z"
     },
     {
       "symbol": "BCP",
       "name": "BCP",
-      "price": 26.93,
-      "change_24h": -3.83,
-      "volume_24h": 11387256,
-      "high_24h": 27.33,
-      "low_24h": 26.52,
-      "rsi": 42.83,
+      "price": 28.31,
+      "change_24h": 1.12,
+      "volume_24h": 21165820,
+      "high_24h": 28.74,
+      "low_24h": 27.89,
+      "rsi": 56.76,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.53,
+      "strength": 0.25,
       "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.372980Z"
+      "timestamp": "2026-05-19T23:34:53.363544Z"
     },
     {
       "symbol": "BH",
       "name": "BH",
-      "price": 145.37,
-      "change_24h": 0.25,
-      "volume_24h": 4655447,
-      "high_24h": 147.55,
-      "low_24h": 143.19,
-      "rsi": 50.83,
+      "price": 147.37,
+      "change_24h": 1.64,
+      "volume_24h": 4210460,
+      "high_24h": 149.58,
+      "low_24h": 145.16,
+      "rsi": 48.79,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.04,
+      "strength": 0.19,
       "sector": "Healthcare",
-      "timestamp": "2026-05-19T22:20:16.372993Z"
+      "timestamp": "2026-05-19T23:34:53.363560Z"
     },
     {
       "symbol": "BJC",
       "name": "BJC",
-      "price": 32.96,
-      "change_24h": 4.64,
-      "volume_24h": 9892412,
-      "high_24h": 33.46,
-      "low_24h": 32.47,
-      "rsi": 63.08,
+      "price": 30.01,
+      "change_24h": -4.72,
+      "volume_24h": 28280607,
+      "high_24h": 30.46,
+      "low_24h": 29.56,
+      "rsi": 46.57,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.73,
+      "strength": 0.54,
       "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.373008Z"
+      "timestamp": "2026-05-19T23:34:53.363577Z"
     },
     {
       "symbol": "BTS",
       "name": "BTS",
-      "price": 6.48,
-      "change_24h": 2.78,
-      "volume_24h": 120362073,
-      "high_24h": 6.57,
-      "low_24h": 6.38,
-      "rsi": 50.43,
+      "price": 6.19,
+      "change_24h": -1.75,
+      "volume_24h": 150272327,
+      "high_24h": 6.28,
+      "low_24h": 6.1,
+      "rsi": 45.9,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.29,
+      "strength": 0.26,
       "sector": "Transport",
-      "timestamp": "2026-05-19T22:20:16.373022Z"
+      "timestamp": "2026-05-19T23:34:53.363594Z"
     },
     {
       "symbol": "CBG",
       "name": "CBG",
-      "price": 123.44,
-      "change_24h": -3.94,
-      "volume_24h": 3763989,
-      "high_24h": 125.29,
-      "low_24h": 121.58,
-      "rsi": 47.03,
+      "price": 123.05,
+      "change_24h": -4.24,
+      "volume_24h": 5555162,
+      "high_24h": 124.89,
+      "low_24h": 121.2,
+      "rsi": 38.45,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.45,
+      "strength": 0.66,
       "sector": "Food",
-      "timestamp": "2026-05-19T22:20:16.373035Z"
+      "timestamp": "2026-05-19T23:34:53.363611Z"
     },
     {
       "symbol": "CENTEL",
       "name": "CENTEL",
-      "price": 37.3,
-      "change_24h": -3.12,
-      "volume_24h": 20034686,
-      "high_24h": 37.86,
-      "low_24h": 36.74,
-      "rsi": 40.88,
+      "price": 38.65,
+      "change_24h": 0.39,
+      "volume_24h": 15137290,
+      "high_24h": 39.23,
+      "low_24h": 38.07,
+      "rsi": 45.63,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.49,
+      "strength": 0.13,
       "sector": "Hotel",
-      "timestamp": "2026-05-19T22:20:16.373049Z"
+      "timestamp": "2026-05-19T23:34:53.363627Z"
     },
     {
       "symbol": "COM7",
       "name": "COM7",
-      "price": 29.09,
-      "change_24h": 1.17,
-      "volume_24h": 17655231,
-      "high_24h": 29.52,
-      "low_24h": 28.65,
-      "rsi": 58.51,
+      "price": 28.92,
+      "change_24h": 0.6,
+      "volume_24h": 21062534,
+      "high_24h": 29.36,
+      "low_24h": 28.49,
+      "rsi": 49.28,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.29,
+      "strength": 0.07,
       "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.373062Z"
+      "timestamp": "2026-05-19T23:34:53.363643Z"
     },
     {
       "symbol": "CRC",
       "name": "CRC",
-      "price": 34.9,
-      "change_24h": -0.3,
-      "volume_24h": 24008629,
-      "high_24h": 35.42,
-      "low_24h": 34.37,
-      "rsi": 51.69,
+      "price": 35.47,
+      "change_24h": 1.34,
+      "volume_24h": 24514242,
+      "high_24h": 36.0,
+      "low_24h": 34.94,
+      "rsi": 47.77,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.06,
+      "strength": 0.18,
       "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.373077Z"
+      "timestamp": "2026-05-19T23:34:53.363660Z"
     },
     {
       "symbol": "EGCO",
       "name": "EGCO",
-      "price": 161.03,
-      "change_24h": 1.92,
-      "volume_24h": 6183139,
-      "high_24h": 163.44,
-      "low_24h": 158.61,
-      "rsi": 56.1,
+      "price": 153.85,
+      "change_24h": -2.63,
+      "volume_24h": 5217011,
+      "high_24h": 156.16,
+      "low_24h": 151.54,
+      "rsi": 50.05,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.31,
+      "strength": 0.26,
       "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.373091Z"
+      "timestamp": "2026-05-19T23:34:53.363676Z"
     },
     {
       "symbol": "GLOBAL",
       "name": "GLOBAL",
-      "price": 18.7,
-      "change_24h": 2.73,
-      "volume_24h": 19178636,
-      "high_24h": 18.98,
-      "low_24h": 18.42,
-      "rsi": 52.84,
+      "price": 17.43,
+      "change_24h": -4.21,
+      "volume_24h": 32556325,
+      "high_24h": 17.7,
+      "low_24h": 17.17,
+      "rsi": 43.81,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.33,
+      "strength": 0.54,
       "sector": "Food",
-      "timestamp": "2026-05-19T22:20:16.373104Z"
+      "timestamp": "2026-05-19T23:34:53.363709Z"
     },
     {
       "symbol": "HMPRO",
       "name": "HMPRO",
-      "price": 14.3,
-      "change_24h": -2.04,
-      "volume_24h": 62710784,
-      "high_24h": 14.52,
-      "low_24h": 14.09,
-      "rsi": 40.38,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.4,
-      "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.373118Z"
-    },
-    {
-      "symbol": "IRPC",
-      "name": "IRPC",
-      "price": 3.27,
-      "change_24h": -4.48,
-      "volume_24h": 228410754,
-      "high_24h": 3.32,
-      "low_24h": 3.22,
-      "rsi": 45.07,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.55,
-      "sector": "Petrochemical",
-      "timestamp": "2026-05-19T22:20:16.373131Z"
-    },
-    {
-      "symbol": "JMT",
-      "name": "JMT",
-      "price": 21.45,
-      "change_24h": -2.92,
-      "volume_24h": 40260173,
-      "high_24h": 21.78,
-      "low_24h": 21.13,
-      "rsi": 47.24,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.35,
-      "sector": "Finance",
-      "timestamp": "2026-05-19T22:20:16.373145Z"
-    },
-    {
-      "symbol": "JMART",
-      "name": "JMART",
-      "price": 16.15,
-      "change_24h": 2.19,
-      "volume_24h": 29029492,
-      "high_24h": 16.39,
-      "low_24h": 15.9,
-      "rsi": 54.98,
+      "price": 14.22,
+      "change_24h": -2.62,
+      "volume_24h": 56090658,
+      "high_24h": 14.43,
+      "low_24h": 14.0,
+      "rsi": 47.32,
       "macd": {
         "macd": 0,
         "signal": 0,
@@ -2467,93 +2410,283 @@
       "signal": "HOLD",
       "strength": 0.32,
       "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.373158Z"
+      "timestamp": "2026-05-19T23:34:53.363728Z"
+    },
+    {
+      "symbol": "IRPC",
+      "name": "IRPC",
+      "price": 3.26,
+      "change_24h": -4.64,
+      "volume_24h": 97750320,
+      "high_24h": 3.31,
+      "low_24h": 3.21,
+      "rsi": 45.89,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.55,
+      "sector": "Petrochemical",
+      "timestamp": "2026-05-19T23:34:53.363744Z"
+    },
+    {
+      "symbol": "JMT",
+      "name": "JMT",
+      "price": 22.64,
+      "change_24h": 2.44,
+      "volume_24h": 33014024,
+      "high_24h": 22.98,
+      "low_24h": 22.3,
+      "rsi": 50.03,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.24,
+      "sector": "Finance",
+      "timestamp": "2026-05-19T23:34:53.363760Z"
+    },
+    {
+      "symbol": "JMART",
+      "name": "JMART",
+      "price": 15.62,
+      "change_24h": -1.12,
+      "volume_24h": 29821740,
+      "high_24h": 15.86,
+      "low_24h": 15.39,
+      "rsi": 46.24,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.19,
+      "sector": "Commerce",
+      "timestamp": "2026-05-19T23:34:53.363775Z"
     },
     {
       "symbol": "TIDLOR",
       "name": "TIDLOR",
-      "price": 17.82,
-      "change_24h": -3.67,
-      "volume_24h": 47755968,
-      "high_24h": 18.09,
-      "low_24h": 17.55,
-      "rsi": 46.86,
+      "price": 18.27,
+      "change_24h": -1.26,
+      "volume_24h": 30424102,
+      "high_24h": 18.54,
+      "low_24h": 17.99,
+      "rsi": 43.61,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.43,
+      "strength": 0.25,
       "sector": "Finance",
-      "timestamp": "2026-05-19T22:20:16.373172Z"
+      "timestamp": "2026-05-19T23:34:53.363791Z"
     },
     {
       "symbol": "TTB",
       "name": "TTB",
-      "price": 1.69,
-      "change_24h": -4.95,
-      "volume_24h": 547152086,
-      "high_24h": 1.72,
-      "low_24h": 1.67,
-      "rsi": 44.57,
+      "price": 1.75,
+      "change_24h": -1.83,
+      "volume_24h": 415447759,
+      "high_24h": 1.77,
+      "low_24h": 1.72,
+      "rsi": 48.72,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.6,
+      "strength": 0.21,
       "sector": "Banking",
-      "timestamp": "2026-05-19T22:20:16.373186Z"
+      "timestamp": "2026-05-19T23:34:53.363807Z"
     },
     {
       "symbol": "TU",
       "name": "TU",
-      "price": 14.41,
-      "change_24h": -3.96,
-      "volume_24h": 54722097,
+      "price": 14.4,
+      "change_24h": -3.98,
+      "volume_24h": 38725513,
       "high_24h": 14.62,
       "low_24h": 14.19,
-      "rsi": 41.8,
+      "rsi": 44.51,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.56,
+      "strength": 0.51,
       "sector": "Food",
-      "timestamp": "2026-05-19T22:20:16.373199Z"
+      "timestamp": "2026-05-19T23:34:53.363822Z"
     },
     {
       "symbol": "WHA",
       "name": "WHA",
-      "price": 4.72,
-      "change_24h": 3.61,
-      "volume_24h": 59152011,
-      "high_24h": 4.8,
-      "low_24h": 4.65,
-      "rsi": 57.81,
+      "price": 4.66,
+      "change_24h": 2.23,
+      "volume_24h": 202658065,
+      "high_24h": 4.73,
+      "low_24h": 4.59,
+      "rsi": 48.63,
       "macd": {
         "macd": 0,
         "signal": 0,
         "histogram": 0
       },
       "signal": "HOLD",
-      "strength": 0.52,
+      "strength": 0.25,
       "sector": "Property",
-      "timestamp": "2026-05-19T22:20:16.373213Z"
+      "timestamp": "2026-05-19T23:34:53.363838Z"
     },
     {
       "symbol": "OR",
       "name": "OR",
-      "price": 17.8,
-      "change_24h": -2.74,
-      "volume_24h": 22033701,
-      "high_24h": 18.07,
-      "low_24h": 17.53,
-      "rsi": 43.02,
+      "price": 17.86,
+      "change_24h": -2.4,
+      "volume_24h": 26059418,
+      "high_24h": 18.13,
+      "low_24h": 17.59,
+      "rsi": 48.84,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.26,
+      "sector": "Energy",
+      "timestamp": "2026-05-19T23:34:53.363854Z"
+    },
+    {
+      "symbol": "AWC",
+      "name": "AWC",
+      "price": 4.77,
+      "change_24h": -0.95,
+      "volume_24h": 110609515,
+      "high_24h": 4.85,
+      "low_24h": 4.7,
+      "rsi": 52.48,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.14,
+      "sector": "Property",
+      "timestamp": "2026-05-19T23:34:53.363870Z"
+    },
+    {
+      "symbol": "OSP",
+      "name": "OSP",
+      "price": 23.43,
+      "change_24h": -4.35,
+      "volume_24h": 13090712,
+      "high_24h": 23.79,
+      "low_24h": 23.08,
+      "rsi": 39.36,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.65,
+      "sector": "Commerce",
+      "timestamp": "2026-05-19T23:34:53.363886Z"
+    },
+    {
+      "symbol": "SAWAD",
+      "name": "SAWAD",
+      "price": 42.36,
+      "change_24h": 0.27,
+      "volume_24h": 20916769,
+      "high_24h": 43.0,
+      "low_24h": 41.73,
+      "rsi": 53.04,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.09,
+      "sector": "Finance",
+      "timestamp": "2026-05-19T23:34:53.363902Z"
+    },
+    {
+      "symbol": "STGT",
+      "name": "STGT",
+      "price": 11.0,
+      "change_24h": -1.74,
+      "volume_24h": 66533751,
+      "high_24h": 11.17,
+      "low_24h": 10.84,
+      "rsi": 44.54,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.28,
+      "sector": "Rubber",
+      "timestamp": "2026-05-19T23:34:53.363918Z"
+    },
+    {
+      "symbol": "TISCO",
+      "name": "TISCO",
+      "price": 98.61,
+      "change_24h": 0.12,
+      "volume_24h": 7250856,
+      "high_24h": 100.09,
+      "low_24h": 97.13,
+      "rsi": 55.07,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.11,
+      "sector": "Banking",
+      "timestamp": "2026-05-19T23:34:53.363934Z"
+    },
+    {
+      "symbol": "TOP",
+      "name": "TOP",
+      "price": 43.85,
+      "change_24h": 2.57,
+      "volume_24h": 7029643,
+      "high_24h": 44.51,
+      "low_24h": 43.19,
+      "rsi": 52.38,
+      "macd": {
+        "macd": 0,
+        "signal": 0,
+        "histogram": 0
+      },
+      "signal": "HOLD",
+      "strength": 0.3,
+      "sector": "Energy",
+      "timestamp": "2026-05-19T23:34:53.363949Z"
+    },
+    {
+      "symbol": "MTC",
+      "name": "MTC",
+      "price": 43.08,
+      "change_24h": 2.57,
+      "volume_24h": 20447430,
+      "high_24h": 43.73,
+      "low_24h": 42.43,
+      "rsi": 57.72,
       "macd": {
         "macd": 0,
         "signal": 0,
@@ -2561,142 +2694,9 @@
       },
       "signal": "HOLD",
       "strength": 0.41,
-      "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.373227Z"
-    },
-    {
-      "symbol": "AWC",
-      "name": "AWC",
-      "price": 4.73,
-      "change_24h": -1.83,
-      "volume_24h": 180222313,
-      "high_24h": 4.8,
-      "low_24h": 4.66,
-      "rsi": 39.99,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.38,
-      "sector": "Property",
-      "timestamp": "2026-05-19T22:20:16.373240Z"
-    },
-    {
-      "symbol": "OSP",
-      "name": "OSP",
-      "price": 25.36,
-      "change_24h": 3.49,
-      "volume_24h": 32306344,
-      "high_24h": 25.74,
-      "low_24h": 24.98,
-      "rsi": 56.96,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.49,
-      "sector": "Commerce",
-      "timestamp": "2026-05-19T22:20:16.373253Z"
-    },
-    {
-      "symbol": "SAWAD",
-      "name": "SAWAD",
-      "price": 40.14,
-      "change_24h": -4.99,
-      "volume_24h": 23384476,
-      "high_24h": 40.74,
-      "low_24h": 39.54,
-      "rsi": 44.17,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.62,
       "sector": "Finance",
-      "timestamp": "2026-05-19T22:20:16.373267Z"
-    },
-    {
-      "symbol": "STGT",
-      "name": "STGT",
-      "price": 10.85,
-      "change_24h": -3.12,
-      "volume_24h": 61572568,
-      "high_24h": 11.01,
-      "low_24h": 10.69,
-      "rsi": 47.39,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.36,
-      "sector": "Rubber",
-      "timestamp": "2026-05-19T22:20:16.373280Z"
-    },
-    {
-      "symbol": "TISCO",
-      "name": "TISCO",
-      "price": 97.5,
-      "change_24h": -1.02,
-      "volume_24h": 9378903,
-      "high_24h": 98.96,
-      "low_24h": 96.03,
-      "rsi": 43.6,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.23,
-      "sector": "Banking",
-      "timestamp": "2026-05-19T22:20:16.373294Z"
-    },
-    {
-      "symbol": "TOP",
-      "name": "TOP",
-      "price": 42.85,
-      "change_24h": 0.25,
-      "volume_24h": 8082984,
-      "high_24h": 43.5,
-      "low_24h": 42.21,
-      "rsi": 51.97,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.06,
-      "sector": "Energy",
-      "timestamp": "2026-05-19T22:20:16.373308Z"
-    },
-    {
-      "symbol": "MTC",
-      "name": "MTC",
-      "price": 42.34,
-      "change_24h": 0.81,
-      "volume_24h": 8959702,
-      "high_24h": 42.98,
-      "low_24h": 41.71,
-      "rsi": 55.93,
-      "macd": {
-        "macd": 0,
-        "signal": 0,
-        "histogram": 0
-      },
-      "signal": "HOLD",
-      "strength": 0.2,
-      "sector": "Finance",
-      "timestamp": "2026-05-19T22:20:16.373321Z"
+      "timestamp": "2026-05-19T23:34:53.363965Z"
     }
   ],
-  "updated_at": "2026-05-19T22:20:16.374245Z"
+  "updated_at": "2026-05-19T23:34:53.364964Z"
 }
